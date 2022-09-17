@@ -37,7 +37,7 @@ export default function QuestSteps(props) {
                     <p>Allow Transaction</p>
                     <div className="line">
                         <a href="https://faucet.goerli.starknet.io/" target="_blank" rel="noreferrer">
-                            <button className={[styles.completeStepButton, styles.v1].join(" ")}>Request testnet eth</button>
+                            <button className={["button", "gold", styles.completeStepButton, styles.v1].join(" ")}>Request testnet eth</button>
                         </a>
                         <button key={"button_step_" + progress} disabled={loading} id="allowButton" onClick={() => {
                             ethContract.approve(contract.address, [900000000000000, 0]).then(async (transaction) => {
@@ -46,7 +46,7 @@ export default function QuestSteps(props) {
                                 setLoading(false);
                                 setProgress(progress + 1)
                             })
-                        }} className={[styles.completeStepButton, styles.v1].join(" ")}>Allow</button>
+                        }} className={["button", "gold", styles.completeStepButton, styles.v1].join(" ")}>Allow</button>
                     </div>
                 </>
                 ethContract.allowance(account, contract.address).then(allowance => {
@@ -68,7 +68,7 @@ export default function QuestSteps(props) {
                         setLoading(false);
                         setProgress(progress + 1)
                     })
-                }} className={[styles.completeStepButton, styles.v1].join(" ")}>Send</button>
+                }} className={["button", "gold", styles.completeStepButton, styles.v1].join(" ")}>Send</button>
             </>
             break;
             case 3:
@@ -142,7 +142,7 @@ export default function QuestSteps(props) {
                                 setProgress(progress + 1)
                             }
                         }
-                    }} className={[styles.completeStepButton, styles.v1].join(" ")}>
+                    }} className={["button", "gold", styles.completeStepButton, styles.v1].join(" ")}>
                         Check
                     </button>
                 </>
@@ -173,7 +173,7 @@ export default function QuestSteps(props) {
                                 await waitForTransaction(transactionHash, "completeStepButton")
                                 setProgress(progress + 1)
                             })
-                        }} className={[styles.completeStepButton, styles.v2].join(" ")}>Validate</button>
+                        }} className={["button", "gold", styles.completeStepButton, styles.v1].join(" ")}>Validate</button>
                         <a className={styles.transactionHash} id="transaction" href="#" target="_blank" rel="noreferrer"></a>
                     </div>
                 </>
@@ -243,7 +243,7 @@ export default function QuestSteps(props) {
             {
                 progress === steps.length && <>
                     <br></br>
-                    <button onClick={() => props.completeQuest()} className="global button highlighted popup">{props.quest.custom_button ? props.quest.custom_button : "Done"}</button>
+                    <button onClick={() => props.completeQuest()} className="global button gold popup">{props.quest.custom_button ? props.quest.custom_button : "Done"}</button>
                 </>
             }
         </>

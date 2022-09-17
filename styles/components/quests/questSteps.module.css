@@ -36,7 +36,7 @@
     pointer-events: auto;
     display: flex;
     justify-content: center;
-    background     : rgb(49, 44, 42);
+    background     : var(--menu_background);
     box-shadow     : var(--menu_shadow);
     border:  var(--menu_border);
     position: absolute;

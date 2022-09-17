@@ -46,8 +46,8 @@ export default function Home() {
   const { data:mintNFTData, invoke:mint } = useStarknetInvoke({ contract, method: 'mint'})
 
   const date = new Date()
-  const beginingDate = 1659106966150
-  const maxQuest = Math.floor((date.getTime() - beginingDate) / 1000 / 3600 / 24 / 7) + 4
+  const beginingDate = 1663432735158
+  const maxQuest = Math.floor((date.getTime() - beginingDate) / 1000 / 3600 / 24 / 7) + 3
   const daysLeftBeforeQuest = ((beginingDate + 1000 * 3600 * 24 * 7 + (maxQuest - 4) * 1000 * 3600 * 24 * 7) - date.getTime()) / 1000 / 3600 / 24
   const hoursLeftBeforeQuest = (daysLeftBeforeQuest - Math.floor(daysLeftBeforeQuest)) * 24
 
