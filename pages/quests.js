@@ -240,7 +240,7 @@ export default function Home() {
                 mint({ args: [] })
                 setQuestAction("Minting your first NFT")
                 setQuestActionDescription("Please wait...")
-                setQuestActionContent(<button onClick={() => setQuestAction("")} className="global button highlighted popup v2">Close</button>)
+                setQuestActionContent(<button onClick={() => setQuestAction("")} className="button gold big popup v2">Close</button>)
                 setCurrentTransaction(null)
                 setCurrentTransactionType(quest.transactionType)
                 //notify({message:"The Goerli network is slow, it is normal to wait a few minutes for the transaction to be completed", warning: true})
@@ -271,7 +271,7 @@ export default function Home() {
                   <CompleteQuestAnim playerLevel={playerLevel} />
                 )
               }
-          }} className={`global button dark ${styles.quest_start_button}`}>Start</button> : <button className={`global button dark ${styles.quest_start_button} ${styles.quest_start_button_completed}`}>Completed</button>
+          }} className={`button gold ${styles.quest_start_button}`}>Start</button> : <button className={`global button dark ${styles.quest_start_button} ${styles.quest_start_button_completed}`}>Completed</button>
         }
       </>,
       pointContener)

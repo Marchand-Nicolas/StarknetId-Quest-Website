@@ -6,7 +6,7 @@
 }
 
 .warningContainer p {
-    color: white;
+    color: var(--metal);
 }
 .warningContainer a {
     color: var(--gold);
@@ -14,7 +14,7 @@ text-decoration: underline;
 }
 
 .errorContainer {
-    background-color: var(--menu_background);
+    background-color: rgba(255, 0, 0, 0.116);
     padding: 15px;
     border-radius: 0.7em;
     width: 100%;

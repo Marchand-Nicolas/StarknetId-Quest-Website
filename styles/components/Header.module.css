@@ -27,10 +27,11 @@
 
 .game_nav * {
     transition: 0.2s;
+    color: var(--metal);
 }
 
 .game_nav div div:hover * {
-    color: var(--metal);
+    color: var(--gold);
 }
 
 

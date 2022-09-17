@@ -16,7 +16,7 @@
   --metal_dark : rgb(36, 35, 31);
   --gold: #19aa6e;
   --gold_light: #bf9e7b;
-  --menu_background     : rgba(102, 69, 57, 0.6);
+  --menu_background     : #fff9f0;
   --menu_shadow     : 0px 0px 150px rgba(0, 0, 0, 0.25);
   --menu_filter: blur(16px);
   --menu_border: solid 1px rgba(73, 73, 73, 0.24);
@@ -124,7 +124,7 @@ fieldset.popup button {
   width          : 660px;
   min-height         : 100px;
   border-radius  : 16px;
-  background     : rgba(49, 44, 42, 0.6);
+  background     : var(--menu_background);
   box-shadow     : 0px 0px 150px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(16px);
   border: solid 1px rgba(73, 73, 73, 0.24);
@@ -210,31 +210,31 @@ fieldset.popup button {
   width          : 100%;
   position       : relative;
   border-radius  : 12px;
-  background-color: #232020b7;
-  border          : 2px solid rgba(243, 242, 237, 0.95);
   box-sizing      : border-box;
+  border: none;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
 }
 
 .button.gold {
   border: none;
-  color: rgb(0, 0, 0);
+  color: white;
   background-color: var(--gold);
   width: fit-content;
   padding        : 0.4em 2em;
-  border-radius  : 1em;
+  border-radius  : 2em;
   font-size: 0.9em;
+}
+
+.button.gold.big {
+  padding        : 0.8em 2em;
+}
+
+.button:hover {
+  box-shadow: #2320202c 0px 0px 15px 0px;
 }
 
 .button.gold.normal {
   margin:  5px 20px;
-}
-
-.button.dark {
-  background-color: #232020;
-}
-
-.button.highlighted {
-  border          : 2px solid var(--gold);
 }
 
 .popup.description {
@@ -286,6 +286,9 @@ fieldset.popup button {
 }
 .gold_light {
   color: var(--gold_light);
+}
+.metal {
+  color: var(--metal);
 }
 
 .line {

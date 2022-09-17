@@ -7,7 +7,7 @@ function LoadingScreen(props) {
             <div className={styles.container}>
                 <h2 className={['title gold', styles.title].join(" ")}>{props.title}</h2>
                 <Loading/>
-                <p className={['description white', styles.description].join(" ")}>{props.description}</p>
+                <p className={['description metal', styles.description].join(" ")}>{props.description}</p>
                 {props.content}
             </div>
         </div>

@@ -120,7 +120,7 @@
 
 .quest_point_locked {
     pointer-events: none;
-    background: #E7C878;
+    background: var(--gold_light);
     transform: translateX(-50%) translateY(10px);
 }
 .quest_point_locked .quest_point_icon {
@@ -135,7 +135,7 @@
 .point_infos_contener {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
-    color: white;
+    color: var(--metal);
 }
 .quest_point:hover .point_infos_contener {
     opacity: 1;
@@ -156,8 +156,7 @@
 
 .quest_point_name::before {
     content: '';
-    background: rgb(0,161,232);
-    background: linear-gradient(297deg, rgba(0,161,232,0) 0%, rgba(249,232,200,1) 50%, rgba(255,255,255,0) 100%);;
+    background: linear-gradient(90deg, rgba(0, 162, 232, 0) 0%, var(--gold) 50%, rgba(255,255,255,0) 100%);;
     position: absolute;
     left: 0;
     right: 0;
@@ -169,8 +168,8 @@
 }
 
 .quest_point_contener:hover .quest_point_name {
-    background-color: rgba(255, 243, 204, 0.329);
     transform: translateX(-50%);
+    color: white;
 
 }
 
@@ -221,7 +220,6 @@
     font-size: 1em !important;
     border: none !important;
     border-radius: 50px !important;
-    color: var(--gold_light) !important;
 }
 
 .quest_start_button_completed {
