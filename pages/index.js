@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import Header from '../components/header' 
 import { getCookie } from "../functions";
 import { InjectedConnector } from '@starknet-react/core'
+import Common from "../components/common";
 
 export default function Home() {;
   const [connectMenuToggled, setConnectMenuToggled] = useState(false);
@@ -31,10 +32,11 @@ export default function Home() {;
   
   return (
   <div className="default_background">
+    <Common account={account} />
     <Powered />
-    {account && <Header/>} 
     {connectMenuToggled ? <WalletMenu close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
+    <div className={styles.background} />
     <div className={styles.logo_banner}/>
       <button onClick={(async () => {
             if (account) {

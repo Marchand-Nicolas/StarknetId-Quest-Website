@@ -1,0 +1,19 @@
+.leaves {
+    position: fixed;
+    width: 300px;
+}
+
+.leaves.v1 {
+    bottom: 0;
+    right: 0;
+}
+
+.leaves.v2 {
+    bottom: 0;
+    left: 0;
+}
+
+.leaves.v3 {
+    top: 0;
+    left: 0;
+}

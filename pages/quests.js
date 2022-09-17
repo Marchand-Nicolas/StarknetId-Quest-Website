@@ -18,6 +18,7 @@ import Settings from "../components/settings";
 import CompleteQuestAnim from "../components/quests/completeQuestAnim";
 import popup from "../utils/popup";
 import config from "../utils/config";
+import Common from "../components/common";
 
 export default function Home() {
   const { connect, connectors } = useConnectors()
@@ -327,7 +328,7 @@ export default function Home() {
     }
   return (
     <div className={["default_background", styles.globalContainer].join(" ")}>
-      {account && <Header/>}
+      <Common account={account} />
       <div id="questsContainer" className={styles.contener}>
       {
         tokenIds && tokenIds.length > 1 && <div className={styles.tokensContainer}>

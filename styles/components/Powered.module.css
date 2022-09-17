@@ -4,7 +4,7 @@
     right: 24px;
     width           : calc(fit-content + 4px);
     height          : fit-content;
-    background-color: rgba(146, 143, 138, 0.2);
+    background-color: var(--menu_background);
     cursor          : pointer;
     border-radius   : 45px;
     border          : 1px solid;

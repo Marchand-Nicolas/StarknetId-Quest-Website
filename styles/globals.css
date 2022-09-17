@@ -11,12 +11,12 @@
 }
 
 :root {
-  --metal : gray;
+  --metal : #402d28;
   --metal_light : rgb(204, 203, 203);
   --metal_dark : rgb(36, 35, 31);
-  --gold: #E7C878;
-  --gold_light: #F9E8C8;
-  --menu_background     : rgba(49, 44, 42, 0.6);
+  --gold: #19aa6e;
+  --gold_light: #bf9e7b;
+  --menu_background     : rgba(102, 69, 57, 0.6);
   --menu_shadow     : 0px 0px 150px rgba(0, 0, 0, 0.25);
   --menu_filter: blur(16px);
   --menu_border: solid 1px rgba(73, 73, 73, 0.24);
@@ -106,11 +106,6 @@ fieldset.popup button {
 }
 
 .default_background {
-  background-image     : url("/background.webp");
-  background-attachment: fixed;
-  background-position  : center;
-  background-repeat    : no-repeat;
-  background-size      : cover;
   display              : block;
   overflow             : auto;
   position             : absolute;
@@ -122,7 +117,7 @@ fieldset.popup button {
 }
 
 .default_background_color {
-  background-color: #42403f;
+  background-color: #fff9f0;
 }
 
 .popup.contener {
