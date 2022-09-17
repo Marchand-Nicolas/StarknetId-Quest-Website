@@ -1,7 +1,6 @@
 import { render, unmountComponentAtNode } from 'react-dom'
 import styles from '../styles/components/Settings.module.css'
 import StarknetIdentities from './starknetIdentities'
-import V1ToV2Menu from './v1ToV2Menu'
 import CloseButton from './buttons/closeButton'
 import { useEffect, useState } from 'react'
 
@@ -25,12 +24,6 @@ export default function Settings(props) {
             <div className={styles.content}>
                 <h1 className={styles.title}>Settings</h1>
                 <ul>
-                    {tokens.length ? <li onClick={() => {
-                        render(<div className={styles.container}>
-                            <CloseButton onClick={() => unmountComponentAtNode(document.getElementById("popup"))} className={styles.close} />
-                            <V1ToV2Menu contract={props.contract} assets={tokens} playerLevel={props.playerLevel} account={props.account} tokenId={props.tokenId[0]} />
-                        </div>, document.getElementById("popup"))
-                    }} className={styles.item}>Migrate V1 NFT to V2</li> : null}
                     {props.playerLevel > 1 ? <li onClick={() => {
                         render(<div className={styles.container}>
                             <CloseButton onClick={() => unmountComponentAtNode(document.getElementById("popup"))} className={styles.close} />

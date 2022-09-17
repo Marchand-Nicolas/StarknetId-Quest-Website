@@ -378,7 +378,7 @@ export default function Home() {
       {
         !account && <WalletMenu />
       }
-      <Settings contract={contract} account={account} tokenId={tokenId} playerLevel={playerLevel} />
+      {playerLevel > 1 ? <Settings contract={contract} account={account} tokenId={tokenId} playerLevel={playerLevel} /> : null}
     </div>
   );
 }
