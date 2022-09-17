@@ -1,13 +1,12 @@
 import styles from '../styles/components/Header.module.css'
 import Link from 'next/link'
-import { useStarknet } from '@starknet-react/core'
 
 function Header() {
     return (
         <nav className={styles.game_nav}>
             <div className={styles.icons}>
                 <Link href="/" passHref>
-                    <img className={styles.logo} width={80} height={60} src="/logo.svg" alt="Eykar Logo" />
+                    <img className={styles.logo} width={60} height={60} src="/logo.png" alt="StarknetId Logo" />
                 </Link>
                 <Link href="/" passHref>
                 <div className={[styles.button, styles.normal, styles.button_div, "link"].join(" ")}>
