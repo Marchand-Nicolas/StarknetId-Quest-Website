@@ -11,7 +11,7 @@ function popup(title, description = "", buttonName = "Okay", action, content, cu
                 {content}
                 <br></br>
                 {
-                    !custom.button ? <button onClick={() => {action ? action() : null; unmountComponentAtNode(document.getElementById("popup"))}} className="button highlighted popup">{buttonName}</button> : custom.button
+                    !custom.button ? <button onClick={() => {action ? action() : null; unmountComponentAtNode(document.getElementById("popup"))}} className="button gold popup">{buttonName}</button> : custom.button
                 }
         </div>
         </div>,
