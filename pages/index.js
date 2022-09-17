@@ -33,7 +33,6 @@ export default function Home() {;
   return (
   <div className="default_background">
     <Common account={account} />
-    <Powered />
     {connectMenuToggled ? <WalletMenu close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     <div className={styles.background} />
