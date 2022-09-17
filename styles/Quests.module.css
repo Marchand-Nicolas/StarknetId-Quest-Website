@@ -102,7 +102,11 @@
 
 .quest_point_contener_completed .quest_point_icon {
     color: #384d2c86;
-} 
+}
+
+.quest_point_contener_completed p {
+    color: white;
+}
 
 .quest_point:hover {
     width: 200px;
@@ -117,6 +121,7 @@
 .quest_point:hover::after {
     border-radius: 12px;
 }
+
 
 .quest_point_locked {
     pointer-events: none;
