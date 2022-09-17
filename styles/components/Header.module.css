@@ -1,8 +1,9 @@
 .game_nav {
     z-index        : 1;
     position       : fixed;
-    left           : calc(50% - 210px);
-    width          : 380px;
+    left           : 50%;
+    transform: translateX(-50%);
+    width          : 500px;
     height         : 60px;
     border-radius  : 0px 0px 16px 16px;
     background     : var(--menu_background);
@@ -23,6 +24,15 @@
     align-items    : center;
     margin-top     : -10px;
 }
+
+.game_nav * {
+    transition: 0.2s;
+}
+
+.game_nav div div:hover * {
+    color: var(--metal);
+}
+
 
 @media (max-width: 700px) {
     .nav {
