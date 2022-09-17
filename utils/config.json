@@ -1,5 +1,5 @@
 {
-    "mainContractAddress": "0x02eb9fdae0b6775ed5cd49bfc12c2c92bc8697bdb694b26e627cd6d98bf1f7ae",
+    "mainContractAddress": "0x068c6b0cab1423338dd3ee6affb14a8e53ec0c64c27075d6137f6b8d2b4ccc73",
     "apiUrl": "https://quest-api.starknet.id/",
     "nftUri": "https://nft.starknet.id/quest-nft/",
     "usingStarknetId": true,
