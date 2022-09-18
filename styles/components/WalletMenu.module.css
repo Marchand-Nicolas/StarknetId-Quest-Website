@@ -44,7 +44,7 @@
 .button {
     background-color: var(--gold);
     border-radius   : 15px;
-    padding: 13px 90px !important;
+    padding: 13px 50px !important;
     display: block;
     margin: 10px auto;
 }
@@ -52,7 +52,6 @@
 .button_text {
     font-family: Verdana, sans-serif;
     font-size  : 15px;
-    margin-left: 18px;
 }
 
 @media (max-width: 820px) {
