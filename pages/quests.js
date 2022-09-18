@@ -345,11 +345,6 @@ export default function Home() {
       {token && <div className={styles.player_infos_contener}>
         <img src={`${config.nftUri}${playerLevel ? playerLevel : 0}`} />
         <p>Level {playerLevel ? playerLevel : 0}</p>
-        <button>
-          <a href={token ? token.aspect_link : "#"} target={"_blank"} rel="noreferrer">
-            <img src="/logos/aspect.png" />
-          </a>
-        </button>
       </div>}
       </div>
       {menu}

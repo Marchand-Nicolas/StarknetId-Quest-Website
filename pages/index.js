@@ -48,14 +48,15 @@ export default function Home() {;
               setConnectMenuToggled(true)
             }
           })} className={
-          ["button", styles.button, styles.play].join(" ")} >
-          <div className={styles.button_div}></div>
-          <svg className={styles.icon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          ["button", "gold", styles["nq-button"]].join(" ")} >
+          <div className="line">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clipRule="evenodd" />
           </svg>
-          <p id="playButtonText" className={styles.button_text}>
-            View quests
-          </p> 
+            <p>
+              View quests
+            </p>
+          </div>
         </button>
       </nav>
     </div>
