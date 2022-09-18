@@ -68,7 +68,7 @@ export default function StarknetIdentities(props) {
             <p>You haven&apos;t minted any idendity for the moment.</p>
         }
         <div className="line">
-            <a href="https://starknet.id/" target="_blank" rel="noreferrer"><button className="button gold">Mint new idendity</button></a>
+            <a href="https://goerli.app.starknet.id/" target="_blank" rel="noreferrer"><button className="button gold">Mint new idendity</button></a>
             <button onClick={() => setRefresh(true)} className="button gold">Refresh</button>
         </div>
     </>

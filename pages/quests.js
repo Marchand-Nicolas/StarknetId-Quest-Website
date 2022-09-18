@@ -181,7 +181,7 @@ export default function Home() {
       if (e.deltaY > 0) {
         zoom = zoom / 1.1
       }
-      questContainer.style.transform = `scale(${zoom})`
+      //questContainer.style.transform = `scale(${zoom})`
     });
     const touchStart = document.addEventListener("touchstart", (e) => {
       beginX = e.changedTouches[0].pageX

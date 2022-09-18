@@ -15,7 +15,7 @@ export default function Settings(props) {
                 <h1 className={styles.title}>Settings</h1>
                 <ul>
                     {props.playerLevel > 1 ? <li onClick={() => {
-                        render(<div className={styles.container}>
+                        render(<div className={"popup contener " + styles.container}>
                             <CloseButton onClick={() => unmountComponentAtNode(document.getElementById("popup"))} className={styles.close} />
                             <StarknetIdentities account={props.account} tokenId={props.tokenId[0]} />
                         </div>, document.getElementById("popup"))

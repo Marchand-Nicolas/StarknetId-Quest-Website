@@ -51,7 +51,7 @@
     height: 40px;
     transform: translateX(-50%);
     border-radius: 90px;
-    transition: 0.4s width, 0.4s height;
+    transition: 0.4s width, 0.4s height, 0.3s background-color;
     pointer-events: auto;
     display: flex;
     justify-content: center;
@@ -82,28 +82,21 @@
 
 .quest_point_contener_completed .quest_point {
     border: none;
-    background: linear-gradient(90deg, var(--gold) 0%, var(--gold_light) 90%);
+    background: var(--gold);
     backdrop-filter: var(--menu_filter);
 }
 
-.quest_point_contener_completed .quest_point:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    border-radius: 12px;
-    transition: 0.3s;
-}
-
-.quest_point_contener_completed .quest_point:hover::after {
+.quest_point_contener_completed .quest_point:hover {
     background-color: var(--menu_background);
 }
 
 .quest_point_contener_completed .quest_point_icon {
-    color: #ffffff86;
+    color: #ffffffbf;
+}
+
+
+.quest_point_contener_completed:hover .quest_point_icon {
+    color: var(--gold);
 }
 
 .quest_point:hover {
@@ -254,21 +247,8 @@
     opacity: 0.8;
 }
 
-.player_infos_contener::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 35px;
-    top: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, var(--gold_light) 100%);
-    border-top-left-radius: .4em;
-    border-top-right-radius: .4em;
-    z-index: -1;
-}
-
 .player_infos_contener {
-    background: linear-gradient(90deg, var(--gold_light) 0%, var(--gold) 100%);
+    background: var(--gold_light);
     padding: 15px;
     border-radius: .4em;
     transform: translate(120px, calc(-100% - 20px));
@@ -358,8 +338,9 @@
 }
 
 .token:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--gold);
     border-radius: 2em;
+    color: white;
 }
 
 .loading {
