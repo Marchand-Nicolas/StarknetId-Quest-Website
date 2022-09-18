@@ -47,7 +47,7 @@ export default function Home() {
 
   const date = new Date()
   const beginingDate = 1663432735158
-  const maxQuest = Math.floor((date.getTime() - beginingDate) / 1000 / 3600 / 24 / 7) + 3
+  const maxQuest = 100//Math.floor((date.getTime() - beginingDate) / 1000 / 3600 / 24 / 7) + 2
   const daysLeftBeforeQuest = ((beginingDate + 1000 * 3600 * 24 * 7 + (maxQuest - 4) * 1000 * 3600 * 24 * 7) - date.getTime()) / 1000 / 3600 / 24
   const hoursLeftBeforeQuest = (daysLeftBeforeQuest - Math.floor(daysLeftBeforeQuest)) * 24
 
