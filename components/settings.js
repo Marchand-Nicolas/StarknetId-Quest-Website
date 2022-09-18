@@ -2,19 +2,9 @@ import { render, unmountComponentAtNode } from 'react-dom'
 import styles from '../styles/components/Settings.module.css'
 import StarknetIdentities from './starknetIdentities'
 import CloseButton from './buttons/closeButton'
-import { useEffect, useState } from 'react'
 
 export default function Settings(props) {
-    const [tokens, setTokens] = useState([])
     
-    useEffect(async () => {
-        if (props.account) {
-            fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${props.account}&contract_address=0x041e1382e604688da7f22e7fbb6113ba3649b84a87b58f4dc1cf5bfa96dfc2cf&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
-                setTokens(res.assets)
-            })
-        }
-    }, [props.account])
-
     return <>
         <section className={styles.button}>
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -29,7 +19,7 @@ export default function Settings(props) {
                             <CloseButton onClick={() => unmountComponentAtNode(document.getElementById("popup"))} className={styles.close} />
                             <StarknetIdentities account={props.account} tokenId={props.tokenId[0]} />
                         </div>, document.getElementById("popup"))
-                    }} className={styles.item}>Starknet Identities</li> : null}
+                    }} className={"button gold big " + styles.item}>Starknet Identities</li> : null}
                 </ul>
             </div>
         </section>

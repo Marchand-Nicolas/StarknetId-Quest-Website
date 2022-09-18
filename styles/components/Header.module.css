@@ -30,10 +30,13 @@
     color: var(--metal);
 }
 
-.game_nav div div:hover * {
-    color: var(--gold);
+.game_nav * * {
+    cursor: pointer !important;
 }
 
+.game_nav * *:hover * {
+    color: var(--gold);
+}
 
 @media (max-width: 700px) {
     .nav {

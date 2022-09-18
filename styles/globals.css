@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
 * {
   margin    : 0;
   padding   : 0;
@@ -162,6 +164,31 @@ fieldset.popup button {
   color: var(--gold);
   margin-bottom: 15px;
 } 
+
+.title.v2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 6rem;
+  color: var(--gold);
+  text-shadow: 4px 4px var(--gold_light);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .title.v2 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title.v2 {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title.v2 {
+    font-size: 2rem;
+  }
+}
 
 .description {
   font-family    : Verdana, sans-serif;

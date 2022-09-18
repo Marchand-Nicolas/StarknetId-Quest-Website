@@ -35,8 +35,11 @@ export default function Home() {;
     <Common account={account} />
     {connectMenuToggled ? <WalletMenu close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
-    <div className={styles.background} />
-    <div className={styles.logo_banner}/>
+    {
+      /*<div className={styles.background} />
+      <div className={styles.logo_banner}/>*/
+    }
+    <h1 className="title v2">STARKNET.ID</h1>
       <button onClick={(async () => {
             if (account) {
               router.push("/quests")

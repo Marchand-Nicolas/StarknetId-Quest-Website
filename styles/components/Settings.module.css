@@ -2,7 +2,7 @@
     position: fixed;
     right: 12px;
     bottom: 12px;
-    background-color: var(--gold);
+    background-color: var(--menu_background);
     width: 40px;
     height: 40px;
     border: none;

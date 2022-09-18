@@ -86,26 +86,24 @@
     backdrop-filter: var(--menu_filter);
 }
 
-.quest_point_contener_completed .quest_point::after {
+.quest_point_contener_completed .quest_point:after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, var(--gold_light) 100%);
-    border-top-left-radius: .4em;
-    border-top-right-radius: .4em;
     z-index: -1;
-    border-radius: 2em;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.quest_point_contener_completed .quest_point:hover::after {
+    background-color: var(--menu_background);
 }
 
 .quest_point_contener_completed .quest_point_icon {
     color: #384d2c86;
-}
-
-.quest_point_contener_completed p {
-    color: white;
 }
 
 .quest_point:hover {
@@ -228,7 +226,7 @@
 }
 
 .quest_start_button_completed {
-    background-color: #384d2c86 !important;
+    background-color: #446630c3 !important;
     color: white !important;
 }
 
