@@ -11,8 +11,24 @@
     transition: all 0.2s ease-in-out;
 }
 
+/* TEMP */
+
+.button, .button * {
+    cursor: pointer;
+}
+
+.button:hover svg {
+    transform: rotate(90deg);
+}
+
+/*******/
+
+.button:hover .content {
+    display: unset;
+}
+
 .button svg {
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     max-width: 50px;
 }
 
@@ -54,6 +70,7 @@
     display: unset;
 }
 
+/*
 .button:hover {
     padding: 15px;
     right: 0;
@@ -61,8 +78,8 @@
     width: 400px;
     height: 250px;
     border-bottom-right-radius: 0;
-
 }
+*/
 
 .item {
     margin: 25px 15px;
