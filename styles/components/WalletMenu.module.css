@@ -47,6 +47,7 @@
     padding: 13px 50px !important;
     display: block;
     margin: 10px auto;
+    width: 100% !important;
 }
 
 .button_text {

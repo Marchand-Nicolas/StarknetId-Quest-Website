@@ -3,37 +3,21 @@ import { useConnectors, useStarknet } from '@starknet-react/core'
 import styles from '../styles/Home.module.css'
 import React from 'react'
 import Powered from '../components/powered'
-import WalletMenu from '../components/walletmenu'
+import WalletMenu from '../components/walletmenu.js'
 import { useRouter } from 'next/router'
-import Header from '../components/header' 
 import { getCookie } from "../functions";
-import { InjectedConnector } from '@starknet-react/core'
 import Common from "../components/common";
 
 export default function Home() {;
   const [connectMenuToggled, setConnectMenuToggled] = useState(false);
-  const { connect, connectors: detectedConnectors } = useConnectors()
-  const [ connectors, setConnectors ] = useState(detectedConnectors)
+  const { connect, connectors } = useConnectors()
   const { account } = useStarknet()
   const router = useRouter()
-  
-  useEffect(() => {
-    setConnectors(detectedConnectors.length && true ? detectedConnectors : [
-      new InjectedConnector({ options: { id: 'argentx' } }),
-      new InjectedConnector({ options: { id: 'braavos' } }),
-    ])
-    const connectorId = getCookie("connector")
-    const connector = connectors.find(connector => connector.id() === connectorId)
-    if (!connector) return;
-    connector.ready().then(ready => {
-      connect(connector)
-    })
-  }, [detectedConnectors])
   
   return (
   <div className="default_background">
     <Common account={account} />
-    {connectMenuToggled ? <WalletMenu close={() => setConnectMenuToggled(false)} /> : null}
+    {connectMenuToggled ? <WalletMenu hasWallet={false} closeWallet={null} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     {
       /*<div className={styles.background} />
@@ -41,12 +25,7 @@ export default function Home() {;
     }
     <h1 className="title v2">STARKNET.ID</h1>
       <button onClick={(async () => {
-            if (account) {
-              router.push("/quests")
-            }
-            else {
-              setConnectMenuToggled(true)
-            }
+            setConnectMenuToggled(true)
           })} className={
           ["button", "gold", styles["nq-button"]].join(" ")} >
           <div className="line">
