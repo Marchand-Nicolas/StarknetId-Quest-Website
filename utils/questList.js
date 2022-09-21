@@ -35,19 +35,24 @@ export default [{
                             name: "An all in one Identity Service",
                             correct: true
                         },
+                        {
+                            name: "A deFi protocol"
+                        }
                     ]
                 },
                 {
-                    name: "Why is it useful for users to verify their social media on their starknet.id ?",
+                    name: "Why is it useful for users to verify their social media accounts on their starknet identity ?",
+                    multiple: true,
                     choices: [
                         {
-                            name: "To permit every starknet protocols to give you reward based on your on and off chain activity",
+                            name: "To permit every starknet protocol to give them reward based on their on and off chain activity",
+                            correct: true
                         },
                         {
-                            name: "To collect your data"
+                            name: "To collect their data"
                         },
                         {
-                            name: "To link your social accounts with your public address",
+                            name: "To link their social media accounts with their public address",
                             correct: true
                         }
                     ]
@@ -56,7 +61,7 @@ export default [{
                     name: "Can we create a .stark subdomain with starknet.id (example: vitalik.ethereum.stark) ?",
                     choices: [
                         {
-                            name: "Yes we can create max 10 subdomains per domain"
+                            name: "Yes we can create a maximum of 10 subdomains per domain"
                         },
                         {
                             name: "No we can’t"
@@ -71,7 +76,7 @@ export default [{
                     name: "What is the utility of setting a domain as your main domain ?",
                     choices: [
                         {
-                            name: "Because your address will be linked with your main domain and therefore protocols will be able to see that you own a .stark",
+                            name: "Your address will be linked with your main domain and therefore protocols will be able to see that you own a particular domain",
                             correct: true
                         },
                         {
@@ -83,7 +88,7 @@ export default [{
                     ]
                 },
                 {
-                    name: "Will the testnet .stark name be useful on mainnet",
+                    name: "Will the testnet .stark name be useful on mainnet ?",
                     choices: [
                         {
                             name: "Yes"
