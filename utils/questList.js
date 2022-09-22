@@ -178,6 +178,22 @@ export default [{
                                                             Set your .stark domain as main domain on <a className='link' href="https://starknet.id/" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
                                                         </p>,
                                                     ],
+                                                    connected: [
+                                                        {
+                                                            name: "Tweet",
+                                                            id: 9,
+                                                            description: "Make a tweet mentioning Starknet.id to support us ❤️",
+                                                            icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                                            </svg>,
+                                                            steps: [6, 4],
+                                                            customContent: [
+                                                                <p>
+                                                                    Post <a className='link' href="https://twitter.com/intent/tweet?text=I%20claimed%20my%20%22.stark%22%20domain%20name%20on%20%40Starknet_id%0A%0AClaim%20yours%20before%20the%2010th%20of%20October%20for%20a%20big%20surprise%20%F0%9F%91%80%20...%20%0A%0A%23StarkNet%20%0A" target="_blank" rel="noreferrer">this tweet</a> including a screenshot of your own identity, then click Okay
+                                                                </p>,
+                                                            ],
+                                                        }
+                                                    ]
                                             }
                                         ]
                                     }
