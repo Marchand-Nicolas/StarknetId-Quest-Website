@@ -1,6 +1,7 @@
 import styles from '../styles/Quests.module.css'
 
-export default [{
+export default function getQuestList(datas) {
+    return [{
     name: "First NFT",
     id: 1,
     description: "Mint your mainnet challenge NFT",
@@ -175,7 +176,7 @@ export default [{
                                                     },
                                                     customContent: [
                                                         <p>
-                                                            Set your .stark domain as main domain on <a className='link' href="https://starknet.id/" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
+                                                            Set your .stark domain as main domain on <a className='link' href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
                                                         </p>,
                                                     ],
                                                     connected: [
@@ -205,3 +206,4 @@ export default [{
         }
     ]
 }]
+}

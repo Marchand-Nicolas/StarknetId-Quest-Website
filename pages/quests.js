@@ -6,7 +6,7 @@ import { useState, useEffect, useMemo } from "react";
 import styles from '../styles/Quests.module.css'
 import React from 'react'
 import notify from "../utils/notify";
-import quests from '../utils/questList'
+import questList from '../utils/questList'
 import QuestTransactionMenu from '../components/questTransactionMenu'
 import QuestSteps from "../components/quests/questSteps";
 import Loading from "../components/loading";
@@ -41,6 +41,11 @@ export default function Home() {
   const [ canCompleteQuest, setCanCompleteQuest ] = useState(false)
   const [ userDatas, setUserDatas ] = useState({})
   const { transactions } = useStarknetTransactionManager()
+  const [ quests, setQuests ] = useState([])
+
+  useEffect(() => {
+    setQuests(questList({identityTokenId: userDatas.identityTokenId}))
+  }, [userDatas])
 
   const { data:mintNFTData, invoke:mint } = useStarknetInvoke({ contract, method: 'mint'})
 
@@ -283,6 +288,7 @@ export default function Home() {
 
   // process quest datas
   function loadBranch(quest, pos, Y, previousQuestCompleted) {
+    if (!quest) return
     const elementPos = pos + 150
     if (!quest.connected) return parseBranch(quest, elementPos, Y, previousQuestCompleted)
     function computeChildY(index) {
