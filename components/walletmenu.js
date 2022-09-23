@@ -3,6 +3,7 @@ import { useStarknet } from '@starknet-react/core'
 import { setCookie } from '../functions'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import WalletIcons from './iconsComponents/icons/WalletIcons'
 
 function WalletMenu({ close }) {
     const { connectors } = useStarknet()
@@ -34,8 +35,11 @@ function WalletMenu({ close }) {
                     <button onClick={() => {
                         setCookie("connector", connector.id(), 10000)
                         router.push("/quests")
-                    }} className={["button", "gold", styles.button].join(" ")} key={"connector_" + index}>
-                        <p className={styles.button_text}>{connector.name()}</p>
+                    }} className={["button", "gold", "big", styles.button].join(" ")} key={"connector_" + index}>
+                        <div className='line'>
+                            <WalletIcons id={connector.id()} />
+                            <p className={styles.button_text}>CONNECT {connector.name().toUpperCase()}</p>
+                        </div>
                     </button>
                 )
             }

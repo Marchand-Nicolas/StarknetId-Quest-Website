@@ -284,6 +284,19 @@ fieldset.popup button {
 
 .button.gold.big {
   padding        : 0.8em 2em;
+  font-size  : 15px;
+}
+
+.button.gold.big * {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.button.gold.big svg {
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: 2em;
 }
 
 .button:hover {
