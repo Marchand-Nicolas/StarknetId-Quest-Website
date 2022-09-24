@@ -4,9 +4,10 @@ import Header from './header'
 export default function Common(props) {
     return (
         <>
-            <Header/>
+            <Header className={props.headerClassname} />
             <img src='/leaves/leaf_1.png' className={[styles.leaves, styles.v1].join(" ")}></img>
             <img src='/leaves/leaf_2.png' className={[styles.leaves, styles.v2].join(" ")}></img>
         </>
     )
 }
+

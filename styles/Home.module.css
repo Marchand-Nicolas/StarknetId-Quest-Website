@@ -1,3 +1,14 @@
+.header {
+  top            : calc(50% + 92px);
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 2em;
+  width: 400px;
+}
+
+.header img {
+  display: none;
+}
+
 .nav {
   position       : absolute;
   left           : 50%;
