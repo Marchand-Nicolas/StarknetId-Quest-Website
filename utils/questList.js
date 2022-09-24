@@ -112,53 +112,88 @@ export default function getQuestList(datas) {
                         },
                     ]
                 },
-            ],
-            connected: [
-                {
-                    name: "Identities",
-                    id: 4,
-                    description: "Create an identity on Starknet.id.",
-                    icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>,
-                    steps: [5],
-                    connected: [
-                        {
-                            name: "Twitter",
-                                id: 8,
-                                description: "Verify your Twitter account on Starknet.id, and unlock exclusive quests.",
-                                icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                                </svg>,
-                                steps: [6, 4],
-                                customContent: [
-                                    <p>
-                                        Verify your twitter
-                                    </p>,
-                                ],
-                                details: {
-                                    0: {
-                                        buttons: [
-                                            <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
-                                        ]
-                                    }
+            ]
+            },
+            {
+                name: "Identities",
+                id: 4,
+                description: "Create an identity on Starknet.id.",
+                icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>,
+                steps: [5],
+                connected: [
+                    {
+                        name: "Twitter",
+                            id: 8,
+                            description: "Verify your Twitter account on Starknet.id, and unlock exclusive quests.",
+                            icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>,
+                            steps: [6, 4],
+                            customContent: [
+                                <p>
+                                    Verify your twitter
+                                </p>,
+                            ],
+                            details: {
+                                0: {
+                                    buttons: [
+                                        <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                    ]
+                                }
+                            },
+                            connected: [
+                                {
+                                    name: "Avatar",
+                                    id: 3,
+                                    description: "Change your twitter profile pic by your identity avatar",
+                                    icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+                                    </svg>,
+                                    steps: [6, 4],
+                                    customContent: [
+                                        <p>
+                                            Change your twitter profile pic by your identity avatar. Don't try to cheat, or you won't get the final reward 🤨
+                                        </p>,
+                                    ],
+                                    details: {
+                                        0: {
+                                            buttons: [
+                                                <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                            ]
+                                        }
+                                    },
                                 },
-                                connected: [
-                                    {
-                                        name: "Get a domain",
-                                        id: 12,
-                                        description: <>Buy a .stark domain on <a className='link' href='https://starknet.id/' target="_blank" rel="noreferrer">Starknet.id</a></>,
-                                        icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-                                        </svg>
-                                        ,
-                                        steps: [6, 4],
-                                        customContent: [
-                                            <p>
-                                                Buy a .stark domain on <a className='link' href="https://starknet.id/" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
-                                            </p>,
-                                        ],
-                                            connected: [
+                                {
+                                    name: "Get a domain",
+                                    id: 12,
+                                    description: <>Buy a .stark domain on <a className='link' href='https://starknet.id/' target="_blank" rel="noreferrer">Starknet.id</a></>,
+                                    icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
+                                    </svg>
+                                    ,
+                                    steps: [6, 4],
+                                    customContent: [
+                                        <p>
+                                            Buy a .stark domain on <a className='link' href="https://starknet.id/" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
+                                        </p>,
+                                    ],
+                                        connected: [
+                                            {
+                                                name: "Tweet",
+                                                id: 3,
+                                                description: "Make a tweet mentioning Starknet.id to support us ❤️",
+                                                icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                                </svg>,
+                                                steps: [6, 4],
+                                                customContent: [
+                                                    <p>
+                                                        Post <a className='link' href="https://twitter.com/intent/tweet?text=I%20claimed%20my%20%22.stark%22%20domain%20name%20on%20%40Starknet_id%0A%0AClaim%20yours%20before%20the%2010th%20of%20October%20for%20a%20big%20surprise%20%F0%9F%91%80%20...%20%0A%0A%23StarkNet%20%0A" target="_blank" rel="noreferrer">this tweet</a> including a screenshot of your own identity, then click Okay
+                                                    </p>,
+                                                ],
+                                            },
                                             {
                                                 name: "Main domain",
                                                     id: 14,
@@ -179,53 +214,12 @@ export default function getQuestList(datas) {
                                                             Set your .stark domain as main domain on <a className='link' href="https://starknet.id" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
                                                         </p>,
                                                     ],
-                                                    connected: [
-                                                        {
-                                                            name: "Tweet",
-                                                            id: 3,
-                                                            description: "Make a tweet mentioning Starknet.id to support us ❤️",
-                                                            icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
-                                                            </svg>,
-                                                            steps: [6, 4],
-                                                            customContent: [
-                                                                <p>
-                                                                    Post <a className='link' href="https://twitter.com/intent/tweet?text=I%20claimed%20my%20%22.stark%22%20domain%20name%20on%20%40Starknet_id%0A%0AClaim%20yours%20before%20the%2010th%20of%20October%20for%20a%20big%20surprise%20%F0%9F%91%80%20...%20%0A%0A%23StarkNet%20%0A" target="_blank" rel="noreferrer">this tweet</a> including a screenshot of your own identity, then click Okay
-                                                                </p>,
-                                                            ],
-                                                            connected: [
-                                                                {
-                                                                    name: "Avatar",
-                                                                    id: 3,
-                                                                    description: "Change your twitter profile pic by your identity avatar",
-                                                                    icon: <svg className={styles.quest_point_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
-                                                                    </svg>,
-                                                                    steps: [6, 4],
-                                                                    customContent: [
-                                                                        <p>
-                                                                            Change your twitter profile pic by your identity avatar. Don't try to cheat, or you won't get the final reward 🤨
-                                                                        </p>,
-                                                                    ],
-                                                                    details: {
-                                                                        0: {
-                                                                            buttons: [
-                                                                                <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
-                                                                            ]
-                                                                        }
-                                                                    },
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
                                             }
-                                        ]
-                                    }
-                                ]
-                        },
-                    ]
-                }
-            ]
+                                    ]
+                                }
+                            ]
+                    },
+                ]
         }
     ]
 }]
