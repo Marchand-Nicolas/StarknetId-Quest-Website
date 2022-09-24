@@ -3,7 +3,7 @@ import { useStarknet } from '@starknet-react/core'
 import { setCookie } from '../functions'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import WalletIcons from './iconsComponents/icons/WalletIcons.tsx'
+import WalletIcons from './iconsComponents/icons/walletIcons'
 
 function WalletMenu({ close }) {
     const { connectors } = useStarknet()
