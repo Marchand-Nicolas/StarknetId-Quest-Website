@@ -139,7 +139,7 @@ export default function getQuestList(datas) {
                                 details: {
                                     0: {
                                         buttons: [
-                                            <a href="https://starknet.id" target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                            <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
                                         ]
                                     }
                                 },
@@ -176,7 +176,7 @@ export default function getQuestList(datas) {
                                                     },
                                                     customContent: [
                                                         <p>
-                                                            Set your .stark domain as main domain on <a className='link' href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
+                                                            Set your .stark domain as main domain on <a className='link' href="https://starknet.id" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
                                                         </p>,
                                                     ],
                                                     connected: [
