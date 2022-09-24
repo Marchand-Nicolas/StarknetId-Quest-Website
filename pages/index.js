@@ -11,7 +11,7 @@ export default function Home() {;
   
   return (
   <div className="default_background">
-    <Common headerClassname={styles.header} account={account} />
+    <Common account={account} />
     {connectMenuToggled ? <WalletMenu hasWallet={false} closeWallet={null} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     <h1 className="title v2">STARKNET.ID</h1>
