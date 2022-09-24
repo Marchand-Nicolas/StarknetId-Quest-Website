@@ -1,28 +1,19 @@
-import { useState, useEffect } from "react";
-import { useConnectors, useStarknet } from '@starknet-react/core'
+import { useState } from "react";
+import { useStarknet } from '@starknet-react/core'
 import styles from '../styles/Home.module.css'
 import React from 'react'
-import Powered from '../components/powered'
 import WalletMenu from '../components/walletmenu.js'
-import { useRouter } from 'next/router'
-import { getCookie } from "../functions";
 import Common from "../components/common";
 
 export default function Home() {;
   const [connectMenuToggled, setConnectMenuToggled] = useState(false);
-  const { connect, connectors } = useConnectors()
   const { account } = useStarknet()
-  const router = useRouter()
   
   return (
   <div className="default_background">
     <Common account={account} />
     {connectMenuToggled ? <WalletMenu hasWallet={false} closeWallet={null} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
-    {
-      /*<div className={styles.background} />
-      <div className={styles.logo_banner}/>*/
-    }
     <h1 className="title v2">STARKNET.ID</h1>
       <button onClick={(async () => {
             setConnectMenuToggled(true)
