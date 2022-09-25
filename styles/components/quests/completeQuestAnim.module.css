@@ -6,7 +6,6 @@
     top: 50%;
     left: 200%;
     backdrop-filter: var(--menu_filter);
-    background-color: var(--gold);
     transition: 1s;
     transform: translateY(-12px) translateX(3px) translate(-50%, -50%);
     animation: nftCard 4s;
