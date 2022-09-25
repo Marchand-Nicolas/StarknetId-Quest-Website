@@ -356,3 +356,36 @@
 .warningContainer svg {
     width: 40px;
 }
+
+.toolBar {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    width: 40px;
+    flex-wrap: wrap-reverse;
+    z-index: 5;
+}
+
+.toolBar .button {
+    background-color: var(--menu_background);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 2em;
+    padding: 4px;
+    margin-top: 5px;
+}
+
+/* TEMP */
+    
+.toolBar .button, .toolBar .button * {
+    cursor: pointer;
+}
+
+/*******/
+
+.toolBar .button svg {
+    transition: 0.2s ease-in-out;
+    max-width: 50px;
+}
