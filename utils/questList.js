@@ -169,7 +169,7 @@ export default function getQuestList(datas) {
                                                 steps: [6, 4],
                                                 customContent: [
                                                     <p>
-                                                        Post <a className='link' href="https://twitter.com/intent/tweet?text=I%20claimed%20my%20%22.stark%22%20domain%20name%20on%20%40Starknet_id%0A%0AClaim%20yours%20before%20October%2010%20for%20a%20big%20surprise%20%F0%9F%91%80%20...%20%0A%0A%23StarkNet%20%23StarknetIdOdyssey" target="_blank" rel="noreferrer">this tweet</a> including a screenshot of your own identity, then click Okay
+                                                        Post <a className='link' href="https://twitter.com/intent/tweet?text=I%20claimed%20my%20%22.stark%22%20domain%20name%20on%20%40Starknet_id%0A%0AClaim%20yours%20before%20October%202%20for%20a%20big%20surprise%20%F0%9F%91%80%20...%20%0A%0A%23StarkNet%20%23StarknetIdOdyssey" target="_blank" rel="noreferrer">this tweet</a> including a screenshot of your own identity, then click Okay
                                                     </p>,
                                                 ],
                                             },
