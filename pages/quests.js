@@ -253,7 +253,6 @@ export default function Home() {
                 setQuestActionContent(<button onClick={() => setQuestAction("")} className="button gold big popup v2">Close</button>)
                 setCurrentTransaction(null)
                 setCurrentTransactionType(quest.transactionType)
-                //notify({message:"The Goerli network is slow, it is normal to wait a few minutes for the transaction to be completed", warning: true})
               break;
               default: setMenu(
                 <div className="global popup contener">
@@ -276,7 +275,6 @@ export default function Home() {
               }
               function completeQuest() {
                 setReloadDatas(true)
-                notify({message:"Quest completed", icon:"/icons/medals.svg"})
                 setMenu(
                   <CompleteQuestAnim playerLevel={playerLevel} />
                 )
