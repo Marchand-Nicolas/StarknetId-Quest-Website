@@ -94,7 +94,6 @@
     color: #ffffffbf;
 }
 
-
 .quest_point_contener_completed:hover .quest_point_icon {
     color: var(--gold);
 }
@@ -113,7 +112,6 @@
     border-radius: 12px;
 }
 
-
 .quest_point_locked {
     pointer-events: none;
     background: var(--gold_light);
@@ -123,7 +121,6 @@
     color: rgb(44, 44, 44);
     transform: scale(0.7) translateY(calc(50% / 0.7));
 }
-
 
 .point_infos_contener {
     opacity: 0;
@@ -172,7 +169,6 @@
 .quest_point_contener:hover .quest_point_name::before {
     opacity: 1;
 }
-
 
 .quest_point_contener:hover .quest_point_icon {
     bottom: 5px;

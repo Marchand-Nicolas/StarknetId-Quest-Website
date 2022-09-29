@@ -139,7 +139,7 @@ export default function getQuestList(datas) {
                             details: {
                                 0: {
                                     buttons: [
-                                        <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                        <a href={"https://goerli.app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
                                     ]
                                 }
                             },
@@ -212,7 +212,7 @@ export default function getQuestList(datas) {
                                     details: {
                                         0: {
                                             buttons: [
-                                                <a href={"https://app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                                <a href={"https://goerli.app.starknet.id/identities/" + datas.identityTokenId + "/"} target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
                                             ]
                                         }
                                     },
