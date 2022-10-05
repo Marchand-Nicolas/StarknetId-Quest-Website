@@ -50,7 +50,7 @@ export default function StarknetIdentities(props) {
                                     document.getElementById("transaction" +  index).innerText = "Open in voyager"
                                     document.getElementById("transaction" +  index).href = "https://beta-goerli.voyager.online/tx/" + transactionHash
                                     await waitForTransaction(transactionHash, button.id)
-                                    props.setProgress(progress + 1)
+                                    props.setProgress(props.progress + 1)
                                 })
                             }
                             else {
