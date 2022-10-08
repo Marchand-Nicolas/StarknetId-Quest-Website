@@ -75,6 +75,7 @@ export default function GetRole() {
 
     return account ? canGetRole ? 
     <div className="popup contener no-anim">
+        <br></br>
         <center>Your configuration seems correct. You just have to click on the button below to get the role.</center>
         <br></br>
         <button onClick={() => callApi(`${config.apiUrl}get_discord_role`, { tokenId: tokenId, player: account }).then(res => {
@@ -86,6 +87,7 @@ export default function GetRole() {
         </button>
     </div>
     : <div className="popup contener no-anim">
+        <br></br>
         <center>{actionDescription}</center>
         <br></br>
         <a href={actionUrl} target="_blank" rel="noreferrer">
