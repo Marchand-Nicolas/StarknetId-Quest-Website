@@ -13,7 +13,6 @@ function WalletMenu({ close, url="/quests" }) {
     useEffect(() => {
         setDevice(1)
     }, [])
-
     
     return (
         device ?

@@ -1,7 +1,6 @@
 import { useStarknetIdContract } from "../hooks/starknetIdContract";
 import { useEffect, useState } from "react";
-import { useStarknet, useConnectors } from "@starknet-react/core";
-import { getCookie } from "../functions";
+import { useStarknet } from "@starknet-react/core";
 import { useMainContract } from "../hooks/mainContract";
 import notify from "../utils/notify";
 import callApi from "../utils/callApi";
@@ -10,7 +9,6 @@ import WalletMenu from "../components/walletmenu";
 import popup from "../utils/popup";
 
 export default function GetRole() {
-    const { connect, connectors } = useConnectors()
     const { contract:starknetIdContract } = useStarknetIdContract()
     const { contract } = useMainContract()
     const [ tokenId, setTokenId ] = useState(undefined)
@@ -20,7 +18,6 @@ export default function GetRole() {
     const [ actionUrl, setActionUrl ] = useState('')
     const [ actionDescription, setActionDescription ] = useState('')
     const [ canGetRole, setCanGetRole ] = useState(false)
-    const [ discordUserId, setDiscordUserId ] = useState('')
 
     useEffect(async () => {
         if (!tokenId || !account) return;
@@ -98,5 +95,5 @@ export default function GetRole() {
                 </div>
             </button>
         </a>
-    </div> : <WalletMenu url="/getrole" />
+    </div> : <WalletMenu  hasWallet={false} closeWallet={null} url="/getrole" />
 }

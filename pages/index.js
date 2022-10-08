@@ -13,7 +13,7 @@ export default function Home() {;
   return (
   <div className="default_background">
     <Common account={account} />
-    {connectMenuToggled ? <WalletMenu url={url} close={() => setConnectMenuToggled(false)} /> : null}
+    {connectMenuToggled ? <WalletMenu hasWallet={false} closeWallet={null} url={url} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     <h1 className="title v2">STARKNET.ID</h1>
     <div className="line">
