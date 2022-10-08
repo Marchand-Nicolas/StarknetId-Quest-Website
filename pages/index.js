@@ -16,6 +16,7 @@ export default function Home() {;
     {connectMenuToggled ? <WalletMenu url={url} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     <h1 className="title v2">STARKNET.ID</h1>
+    <div className="line">
       <button onClick={(async () => {
             setUrl('/quests')
             setConnectMenuToggled(true)
@@ -41,6 +42,7 @@ export default function Home() {;
             </p>
           </div>
         </button>
+        </div>
       </nav>
     </div>
   );
