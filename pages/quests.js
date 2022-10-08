@@ -380,14 +380,14 @@ export default function Home() {
       <div className={styles.toolBar}>
         {playerLevel > 1 ? <Settings contract={contract} account={account} tokenId={tokenId} playerLevel={playerLevel} /> : null}
         <button onClick={() => zoom(1.1)} className={styles.button}>
-        <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-        </svg>
+          <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
         </button>
         <button onClick={() => zoom(0.9)} className={styles.button}>
-        <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
-        </svg>
+          <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+          </svg>
         </button>
       </div>
     </div>

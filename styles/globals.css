@@ -277,6 +277,15 @@ fieldset.popup button {
   margin-right: 0.5em;
 }
 
+.button.normal {
+  border: none;
+  color: rgb(61, 61, 61);
+  width: fit-content;
+  padding        : 0.4em 2em;
+  border-radius  : 2em;
+  font-size: 0.9em;
+}
+
 .button.gold {
   border: none;
   color: white;

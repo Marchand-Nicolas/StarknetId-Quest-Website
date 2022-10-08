@@ -7,15 +7,17 @@ import Common from "../components/common";
 
 export default function Home() {;
   const [connectMenuToggled, setConnectMenuToggled] = useState(false);
+  const [url, setUrl] = useState('');
   const { account } = useStarknet()
   
   return (
   <div className="default_background">
     <Common account={account} />
-    {connectMenuToggled ? <WalletMenu hasWallet={false} closeWallet={null} close={() => setConnectMenuToggled(false)} /> : null}
+    {connectMenuToggled ? <WalletMenu url={url} close={() => setConnectMenuToggled(false)} /> : null}
     <nav className={styles.nav}>
     <h1 className="title v2">STARKNET.ID</h1>
       <button onClick={(async () => {
+            setUrl('/quests')
             setConnectMenuToggled(true)
           })} className={
           ["button", "gold", styles["nq-button"]].join(" ")} >
@@ -25,6 +27,17 @@ export default function Home() {;
           </svg>
             <p>
               View quests
+            </p>
+          </div>
+        </button>
+        <button onClick={(async () => {
+            setUrl('/getrole')
+            setConnectMenuToggled(true)
+          })} className={
+          ["button", "normal", styles["nq-button"]].join(" ")} >
+          <div className="line">
+            <p>
+              Get role
             </p>
           </div>
         </button>
