@@ -23,11 +23,11 @@ export default function Home() {
   const { connect, connectors } = useConnectors()
   const { account } = useStarknet()
   const { contract } = useMainContract()
-  const [questCompleted, setQuestCompleted] = useState(false)
-  const [questAction, setQuestAction] = useState("")
-  const [questActionDescription, setQuestActionDescription] = useState("")
-  const [questActionContent, setQuestActionContent] = useState("")
-  const [loadingDatas, setLoadingDatas] = useState(false);
+  const [ questCompleted, setQuestCompleted ] = useState(false)
+  const [ questAction, setQuestAction ] = useState("")
+  const [ questActionDescription, setQuestActionDescription ] = useState("")
+  const [ questActionContent, setQuestActionContent ] = useState("")
+  const [ loadingDatas, setLoadingDatas ] = useState(false);
   const [ tokenId, setTokenId ] = useState(undefined)
   const [ token, setToken ] = useState(undefined)
   const [ tokens, setTokens ] = useState(undefined)
@@ -157,7 +157,6 @@ export default function Home() {
     }, [contract, account, questCompleted, tokenId, reloadDatas])
     return [progress, level, questCompleted, questAction]
   }
-
 
   useEffect(async () => {
     const questContainer = await waitForElm("#questsContainer")
