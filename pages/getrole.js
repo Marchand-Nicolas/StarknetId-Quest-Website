@@ -22,17 +22,8 @@ export default function GetRole() {
     useEffect(async () => {
         if (!tokenId || !account) return;
         const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account })
+        console.log(userDatas)
         setUserDatas(userDatas)
-        if (userDatas.identityTokenId != '0') {
-            function error() {
-                popup("Error", "Your starknet identity is outdated, please click on the gear icon at the bottom right to change it. Otherwise, some quests will not work.")
-            }
-            try {
-                const res = await (await fetch(`https://api-testnet.aspect.co/api/v0/asset/${config.starknetIdContractAddress}/${userDatas.identityTokenId}`)).json()
-                if (!res.id) error()
-            }
-            catch {error()}
-        }
     }, [tokenId, account])
 
     useEffect(() => {
@@ -40,7 +31,7 @@ export default function GetRole() {
         try {
             fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
                 const assets = res.assets.map(asset => asset.token_id)
-                setTokenId([assets[0], 0])
+                if (assets[0]) setTokenId([assets[0], 0])
             })
         } catch (error) {
             notify({message:"The Aspect api is currently unavailable. Please check back later.", warning: true})
