@@ -43,7 +43,7 @@ export default function GetRole() {
 
     useEffect(async () => {
         if (!tokenId) {
-            setActionDescription("You don't have any NFTs yet. You can get one by completing the first. Check that you are using to the right wallet.")
+            setActionDescription("You don't have any NFTs yet. You can get one by completing the first quest. Check that you are using to the right wallet.")
             setActionName('Quest tree')
             setActionUrl('/quests')
             return;
