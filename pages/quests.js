@@ -38,7 +38,7 @@ export default function Home() {
   const [ currentTransaction, setCurrentTransaction ] = useState(null)
   const [ currentTransactionType, setCurrentTransactionType ] = useState(null)
   const [ menu, setMenu ] = useState(null)
-  const [ canCompleteQuest, setCanCompleteQuest ] = useState(false)
+  const [ canCompleteQuest, setCanCompleteQuest ] = useState(true)
   const [ userDatas, setUserDatas ] = useState({})
   const { transactions } = useStarknetTransactionManager()
   const [ quests, setQuests ] = useState([])
@@ -56,7 +56,7 @@ export default function Home() {
   const hoursLeftBeforeQuest = (daysLeftBeforeQuest - Math.floor(daysLeftBeforeQuest)) * 24
 
   useEffect(() => {
-    setCanCompleteQuest(playerLevel < maxQuest)
+    //setCanCompleteQuest(playerLevel < maxQuest)
   }, [tokenId, playerLevel, maxQuest])
 
   useEffect(() => {
