@@ -20,10 +20,13 @@ export default function GetRole() {
     const [ actionDescription, setActionDescription ] = useState('')
     const [ canGetRole, setCanGetRole ] = useState(false)
     const [ loading, setLoading ] = useState(true)
+    const [ loadingUserDatas, setLoadingUserDatas ] = useState(true)
 
     useEffect(async () => {
         if (!tokenId || !account) return;
         const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account })
+        setLoadingUserDatas(false)
+        setLoading(true)
         setUserDatas(userDatas)
     }, [tokenId, account])
 
@@ -85,7 +88,7 @@ export default function GetRole() {
         </div>
         : <>
         {
-            loading ? <LoadingScreen /> : <div className="popup contener no-anim">
+            loading || loadingUserDatas ? <LoadingScreen /> : <div className="popup contener no-anim">
             <br></br>
             <center>{actionDescription}</center>
             <br></br>
