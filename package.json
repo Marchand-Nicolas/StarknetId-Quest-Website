@@ -12,7 +12,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.6",
-    "@starknet-react/core": "^0.13.4",
+    "@starknet-react/core": "^0.14.7",
     "next": "^12.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
