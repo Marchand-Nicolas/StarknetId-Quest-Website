@@ -4,7 +4,7 @@ import LoadingScreen from "./loadingScreen";
 
 export default function QuestTransactionMenu(props) {
   return (
-    (!props.questCompleted && props.questAction) ? <LoadingScreen title={props.questAction} description={props.transaction ? props.questActionDescription : "Please confirm the transaction."} content={
+    (!props.questCompleted && props.questAction) ? <LoadingScreen title={props.questAction} description={props.questActionDescription} content={
         <>
           <br></br><br></br>
           {
@@ -23,7 +23,7 @@ export default function QuestTransactionMenu(props) {
               </div>
             </>
           }
-          <p className={[styles.transaction_status, props.transaction && (props.transaction.status === "REJECTED" && styles.transaction_status_rejected)].join(" ")}>{props.transaction ? "Current status : " + props.transaction.status || "..." : "..."}</p>
+          <p id='questTransactionStatus' className={styles.transaction_status}>...</p>
           <br></br><br></br>
           {props.content ? props.content : null}
         </>

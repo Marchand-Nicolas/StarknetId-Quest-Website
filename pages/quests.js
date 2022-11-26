@@ -1,7 +1,7 @@
 import { waitForElm, getCookie, setCookie } from "../functions";
 import { render, unmountComponentAtNode } from "react-dom";
 import { useMainContract } from '../hooks/mainContract'
-import { useStarknetInvoke, useStarknet, useConnectors, useStarknetTransactionManager } from '@starknet-react/core'
+import { useConnectors, useAccount } from '@starknet-react/core'
 import { useState, useEffect, useMemo } from "react";
 import styles from '../styles/Quests.module.css'
 import React from 'react'
@@ -18,10 +18,11 @@ import CompleteQuestAnim from "../components/quests/completeQuestAnim";
 import popup from "../utils/popup";
 import config from "../utils/config";
 import Common from "../components/common";
+import waitForTransaction from "../utils/waitForTransaction";
 
 export default function Home() {
   const { connect, connectors } = useConnectors()
-  const { account } = useStarknet()
+  const { account } = useAccount()
   const { contract } = useMainContract()
   const [ questCompleted, setQuestCompleted ] = useState(false)
   const [ questAction, setQuestAction ] = useState("")
@@ -35,19 +36,14 @@ export default function Home() {
   const [ reloadDatas, setReloadDatas ] = useState(false)
   const [ reloadTokens, setReloadTokens ] = useState(false)
   const [ questProgress, playerLevel ] = GetQuestProgress()
-  const [ currentTransaction, setCurrentTransaction ] = useState(null)
-  const [ currentTransactionType, setCurrentTransactionType ] = useState(null)
   const [ menu, setMenu ] = useState(null)
   const [ canCompleteQuest, setCanCompleteQuest ] = useState(true)
   const [ userDatas, setUserDatas ] = useState({})
-  const { transactions } = useStarknetTransactionManager()
   const [ quests, setQuests ] = useState([])
 
   useEffect(() => {
     setQuests(questList({identityTokenId: userDatas.identityTokenId}))
   }, [userDatas])
-
-  const { data:mintNFTData, invoke:mint } = useStarknetInvoke({ contract, method: 'mint'})
 
   const date = new Date()
   const beginingDate = 1663432735158
@@ -76,31 +72,8 @@ export default function Home() {
   }, [connectors])
 
   useEffect(async () => {
-    if (!currentTransactionType) return
-    let transactionHash = undefined
-    switch (currentTransactionType) {
-      case 1:
-        transactionHash= mintNFTData
-      break;
-    }
-    if (!transactionHash) return
-    for (const transaction of transactions)
-        if (transaction.transactionHash === transactionHash) {
-          setCurrentTransaction(transaction)
-          if (transaction.status === 'ACCEPTED_ON_L2' || transaction.status === 'ACCEPTED_ON_L1') {
-            setQuestCompleted(true)
-            switch (currentTransactionType) {
-              case 1:
-                if (!token) waitForIndexation(account, contract, setToken, setTokenIds, setTokenId, setReloadDatas)
-              break;
-            }
-          }
-        }
-}, [currentTransaction, transactions])
-
-  useEffect(async () => {
     if (!tokenId || !account) return;
-    const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account })
+    const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account.address })
     setUserDatas(userDatas)
     if (userDatas.identityTokenId != '0') {
       function error() {
@@ -118,7 +91,7 @@ export default function Home() {
     if (account)
     try {
       if (reloadTokens) setReloadTokens(false)
-      fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
+      fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account.address}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
         setTokens(res.assets)
         const assets = res.assets.map(asset => asset.token_id)
         setToken(res.assets[0])
@@ -246,12 +219,17 @@ export default function Home() {
           <button onClick={() => {
             switch (quest.transactionType) {
               case 1:
-                mint({ args: [] })
+                contract.mint().then((datas) => {
+                  waitForTransaction(datas.transaction_hash, 'questTransactionStatus').then(() => {
+                    setQuestAction('')
+                    setReloadDatas(true)
+                    setReloadTokens(true)
+                    waitForIndexation(account.address, contract, setToken, setTokenIds, setTokenId, setReloadDatas)
+                  })
+                })
                 setQuestAction("Minting your first NFT")
                 setQuestActionDescription("Please wait...")
                 setQuestActionContent(<button onClick={() => setQuestAction("")} className="button gold big popup v2">Close</button>)
-                setCurrentTransaction(null)
-                setCurrentTransactionType(quest.transactionType)
               break;
               default: setMenu(
                 <div className="global popup contener">
@@ -332,7 +310,7 @@ export default function Home() {
     }
   return (
     <div className={["default_background", styles.globalContainer].join(" ")}>
-      <Common account={account} />
+      <Common />
       <div id="questsContainer" className={styles.contener}>
       {
         tokenIds && tokenIds.length > 1 && <div className={styles.tokensContainer}>
@@ -356,7 +334,7 @@ export default function Home() {
       </div>}
       </div>
       {menu}
-      {(questAction && !questCompleted) ? <QuestTransactionMenu content={questActionContent} questCompleted={questCompleted} questAction={questAction} questActionDescription={questActionDescription} transaction={currentTransaction} /> : null}
+      {questAction ? <QuestTransactionMenu content={questActionContent} questCompleted={questCompleted} questAction={questAction} questActionDescription={questActionDescription} /> : null}
       <Loading style={{zoom: 0.7, opacity: loadingDatas ? 1 : 0}} className={styles.loading} />
       {
         !canCompleteQuest && <div key={"notification_" + Math.random()}>
@@ -378,7 +356,7 @@ export default function Home() {
         !account && <WalletMenu hasWallet={false} closeWallet={null} />
       }
       <div className={styles.toolBar}>
-        {playerLevel > 1 ? <Settings contract={contract} account={account} tokenId={tokenId} playerLevel={playerLevel} /> : null}
+        {playerLevel > 1 ? <Settings contract={contract} account={account.address} tokenId={tokenId} playerLevel={playerLevel} /> : null}
         <button onClick={() => zoom(1.1)} className={styles.button}>
           <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

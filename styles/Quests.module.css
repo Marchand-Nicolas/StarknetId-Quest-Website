@@ -325,6 +325,10 @@
     transition: 1s;
 }
 
+.loading div:after {
+    background: white !important;
+}
+
 .warningContainer {
     display: flex;
     align-items: center;

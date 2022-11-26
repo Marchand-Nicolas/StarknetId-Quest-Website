@@ -1,6 +1,6 @@
 import { useStarknetIdContract } from "../hooks/starknetIdContract";
 import { useEffect, useState } from "react";
-import { useStarknet } from "@starknet-react/core";
+import { useAccount } from "@starknet-react/core";
 import { useMainContract } from "../hooks/mainContract";
 import notify from "../utils/notify";
 import callApi from "../utils/callApi";
@@ -13,7 +13,7 @@ export default function GetRole() {
     const { contract:starknetIdContract } = useStarknetIdContract()
     const { contract } = useMainContract()
     const [ tokenId, setTokenId ] = useState(undefined)
-    const { account } = useStarknet()
+    const { account } = useAccount()
     const [ userDatas, setUserDatas ] = useState({})
     const [ actionName, setActionName ] = useState('')
     const [ actionUrl, setActionUrl ] = useState('')
@@ -24,7 +24,7 @@ export default function GetRole() {
 
     useEffect(async () => {
         if (!tokenId || !account) return;
-        const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account })
+        const userDatas = await callApi(`${config.apiUrl}get_nft_datas`, { tokenId: tokenId, player: account.address })
         setLoadingUserDatas(false)
         setLoading(true)
         setUserDatas(userDatas)
@@ -33,7 +33,8 @@ export default function GetRole() {
     useEffect(() => {
         if (account)
         try {
-            fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
+            fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account.address}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
+                console.log(res)
                 const assets = res.assets.map(asset => asset.token_id)
                 if (assets[0]) setTokenId([assets[0], 0])
                 else setLoading(false)
@@ -78,7 +79,7 @@ export default function GetRole() {
             <br></br>
             <center>Your configuration seems correct. You just have to click on the button below to get the role.</center>
             <br></br>
-            <button onClick={() => callApi(`${config.apiUrl}get_discord_role`, { tokenId: tokenId, player: account }).then(res => {
+            <button onClick={() => callApi(`${config.apiUrl}get_discord_role`, { tokenId: tokenId, player: account.address }).then(res => {
                 if (res.result) popup("Success", `You have been granted the Odyssey OG role. @${res.username} (${res.discordUserId})`)
             })} className="button gold nq-button">
                 <div className="line">
