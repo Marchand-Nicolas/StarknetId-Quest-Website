@@ -20,6 +20,8 @@ import config from "../utils/config";
 import Common from "../components/common";
 import waitForTransaction from "../utils/waitForTransaction";
 
+// test
+
 export default function Home() {
   const { connect, connectors } = useConnectors()
   const { account } = useAccount()
