@@ -34,7 +34,6 @@ export default function GetRole() {
         if (account)
         try {
             fetch(`https://api-testnet.aspect.co/api/v0/assets?owner_address=${account.address}&contract_address=${contract.address}&sort_by=minted_at&order_by=asc`).then(res => res.json()).then(async res => {
-                console.log(res)
                 const assets = res.assets.map(asset => asset.token_id)
                 if (assets[0]) setTokenId([assets[0], 0])
                 else setLoading(false)
@@ -61,6 +60,7 @@ export default function GetRole() {
             setActionUrl('/quests')
             return;
         }
+        if (!userDatas.identityTokenId) return;
         const discordUserId = (await starknetIdContract.get_verifier_data([userDatas.identityTokenId, 0], "28263441981469284", "0x06520a4a1934c84a385a3088952c3812c96f9e9c614bc4d483daff5622ea9fad")).toString()
         setLoading(false)
         if (discordUserId == '0') {
