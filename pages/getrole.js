@@ -79,7 +79,7 @@ export default function GetRole() {
             <br></br>
             <center>Your configuration seems correct. You just have to click on the button below to get the role.</center>
             <br></br>
-            <button onClick={() => callApi(`${config.apiUrl}get_discord_role`, { tokenId: tokenId, player: account.address }).then(res => {
+            <button onClick={() => callApi(`${config.apiUrl}get_discord_role`, { tokenId: tokenId, player: account.address, identityTokenId: userDatas.identityTokenId }).then(res => {
                 if (res.result) popup("Success", `You have been granted the Odyssey OG role. @${res.username} (${res.discordUserId})`)
             })} className="button gold nq-button">
                 <div className="line">
