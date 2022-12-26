@@ -77,13 +77,17 @@ export default function Home() {
     setUserDatas(userDatas)
     if (userDatas.identityTokenId != '0') {
       function error() {
-        popup("Error", "Your starknet identity is outdated, please click on the gear icon at the bottom right to change it. Otherwise, some quests will not work.")
+        popup("Error", "Your starknet identity is outdated, please click on the gear icon at the bottom right to change it. Otherwise, some quests will not work.");
       }
       try {
-        const res = await (await fetch(`https://api-testnet.aspect.co/api/v0/asset/${config.starknetIdContractAddress}/${userDatas.identityTokenId}`)).json()
-        if (!res.id) error()
+        console.log(userDatas.identityTokenId)
+        const res = await (await fetch(`https://api-testnet.aspect.co/api/v0/asset/${config.starknetIdContractAddress}/${userDatas.identityTokenId}`)).json();
+        if (!res.id) error();
       }
-      catch {error()}
+      catch (e) {
+        error();
+        throw e;
+      }
     }
   }, [tokenId, account])
 

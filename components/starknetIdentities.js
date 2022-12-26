@@ -14,7 +14,7 @@ export default function StarknetIdentities(props) {
     useEffect(async () => {
         setLoading(true)
         if (refresh) return setRefresh(false)
-        const res = await (await fetch("https://api-testnet.aspect.co/api/v0/assets?owner_address=" + props.account + "&contract_address=0x0798e884450c19e072d6620fefdbeb7387d0453d3fd51d95f5ace1f17633d88b")).json()
+        const res = await (await fetch("https://api-testnet.aspect.co/api/v0/assets?owner_address=" + props.account + "&contract_address=" + config.starknetIdContractAddress)).json()
         setIdentities(res.assets)
         setLoading(false)
     }, [refresh])

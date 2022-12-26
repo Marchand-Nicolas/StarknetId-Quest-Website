@@ -1,20 +1,20 @@
 [
     {
+        "name": "Uint256",
+        "size": 2,
+        "type": "struct",
         "members": [
             {
                 "name": "low",
-                "offset": 0,
-                "type": "felt"
+                "type": "felt",
+                "offset": 0
             },
             {
                 "name": "high",
-                "offset": 1,
-                "type": "felt"
+                "type": "felt",
+                "offset": 1
             }
-        ],
-        "name": "Uint256",
-        "size": 2,
-        "type": "struct"
+        ]
     },
     {
         "data": [
@@ -76,8 +76,34 @@
     {
         "data": [
             {
+                "name": "implementation",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "previousAdmin",
+                "type": "felt"
+            },
+            {
+                "name": "newAdmin",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
                 "name": "token_id",
-                "type": "Uint256"
+                "type": "felt"
             },
             {
                 "name": "field",
@@ -96,7 +122,7 @@
         "data": [
             {
                 "name": "token_id",
-                "type": "Uint256"
+                "type": "felt"
             },
             {
                 "name": "field",
@@ -116,87 +142,119 @@
         "type": "event"
     },
     {
-        "inputs": [],
-        "name": "constructor",
-        "outputs": [],
-        "type": "constructor"
+        "name": "initializer",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "proxy_admin",
+                "type": "felt"
+            },
+            {
+                "name": "uri_base_len",
+                "type": "felt"
+            },
+            {
+                "name": "uri_base",
+                "type": "felt*"
+            }
+        ],
+        "outputs": []
     },
     {
-        "inputs": [],
         "name": "name",
+        "type": "function",
+        "inputs": [],
         "outputs": [
             {
                 "name": "name",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
-        "inputs": [],
         "name": "symbol",
+        "type": "function",
+        "inputs": [],
         "outputs": [
             {
                 "name": "symbol",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "balanceOf",
+        "type": "function",
         "inputs": [
             {
                 "name": "owner",
                 "type": "felt"
             }
         ],
-        "name": "balanceOf",
         "outputs": [
             {
                 "name": "balance",
                 "type": "Uint256"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "ownerOf",
+        "type": "function",
         "inputs": [
             {
                 "name": "token_id",
                 "type": "Uint256"
             }
         ],
-        "name": "ownerOf",
         "outputs": [
             {
                 "name": "owner",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "owner_of",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "felt"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "name": "getApproved",
+        "type": "function",
         "inputs": [
             {
                 "name": "token_id",
                 "type": "Uint256"
             }
         ],
-        "name": "getApproved",
         "outputs": [
             {
                 "name": "approved",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "isApprovedForAll",
+        "type": "function",
         "inputs": [
             {
                 "name": "owner",
@@ -207,24 +265,23 @@
                 "type": "felt"
             }
         ],
-        "name": "isApprovedForAll",
         "outputs": [
             {
                 "name": "is_approved",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "tokenURI",
+        "type": "function",
         "inputs": [
             {
                 "name": "tokenId",
                 "type": "Uint256"
             }
         ],
-        "name": "tokenURI",
         "outputs": [
             {
                 "name": "tokenURI_len",
@@ -235,60 +292,36 @@
                 "type": "felt*"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
-        "inputs": [
-            {
-                "name": "token_id",
-                "type": "Uint256"
-            },
-            {
-                "name": "field",
-                "type": "felt"
-            }
-        ],
         "name": "get_user_data",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "felt"
+            },
+            {
+                "name": "field",
+                "type": "felt"
+            }
+        ],
         "outputs": [
             {
                 "name": "data",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
-        "inputs": [
-            {
-                "name": "token_id",
-                "type": "Uint256"
-            },
-            {
-                "name": "field",
-                "type": "felt"
-            },
-            {
-                "name": "address",
-                "type": "felt"
-            }
-        ],
         "name": "get_verifier_data",
-        "outputs": [
-            {
-                "name": "data",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
+        "type": "function",
         "inputs": [
             {
                 "name": "token_id",
-                "type": "Uint256"
+                "type": "felt"
             },
             {
                 "name": "field",
@@ -299,17 +332,42 @@
                 "type": "felt"
             }
         ],
-        "name": "get_confirmed_data",
         "outputs": [
             {
                 "name": "data",
                 "type": "felt"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "view"
     },
     {
+        "name": "get_confirmed_data",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "felt"
+            },
+            {
+                "name": "field",
+                "type": "felt"
+            },
+            {
+                "name": "address",
+                "type": "felt"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "data",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "name": "approve",
+        "type": "function",
         "inputs": [
             {
                 "name": "to",
@@ -320,11 +378,11 @@
                 "type": "Uint256"
             }
         ],
-        "name": "approve",
-        "outputs": [],
-        "type": "function"
+        "outputs": []
     },
     {
+        "name": "setApprovalForAll",
+        "type": "function",
         "inputs": [
             {
                 "name": "operator",
@@ -335,11 +393,11 @@
                 "type": "felt"
             }
         ],
-        "name": "setApprovalForAll",
-        "outputs": [],
-        "type": "function"
+        "outputs": []
     },
     {
+        "name": "transferFrom",
+        "type": "function",
         "inputs": [
             {
                 "name": "_from",
@@ -354,11 +412,11 @@
                 "type": "Uint256"
             }
         ],
-        "name": "transferFrom",
-        "outputs": [],
-        "type": "function"
+        "outputs": []
     },
     {
+        "name": "safeTransferFrom",
+        "type": "function",
         "inputs": [
             {
                 "name": "_from",
@@ -381,45 +439,26 @@
                 "type": "felt*"
             }
         ],
-        "name": "safeTransferFrom",
-        "outputs": [],
-        "type": "function"
+        "outputs": []
     },
     {
-        "inputs": [
-            {
-                "name": "tokenId",
-                "type": "Uint256"
-            }
-        ],
         "name": "mint",
-        "outputs": [],
-        "type": "function"
-    },
-    {
+        "type": "function",
         "inputs": [
             {
                 "name": "token_id",
-                "type": "Uint256"
-            },
-            {
-                "name": "field",
-                "type": "felt"
-            },
-            {
-                "name": "data",
                 "type": "felt"
             }
         ],
+        "outputs": []
+    },
+    {
         "name": "set_user_data",
-        "outputs": [],
-        "type": "function"
-    },
-    {
+        "type": "function",
         "inputs": [
             {
                 "name": "token_id",
-                "type": "Uint256"
+                "type": "felt"
             },
             {
                 "name": "field",
@@ -430,11 +469,51 @@
                 "type": "felt"
             }
         ],
+        "outputs": []
+    },
+    {
         "name": "set_verifier_data",
-        "outputs": [],
-        "type": "function"
+        "type": "function",
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "felt"
+            },
+            {
+                "name": "field",
+                "type": "felt"
+            },
+            {
+                "name": "data",
+                "type": "felt"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "name": "upgrade",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "new_implementation",
+                "type": "felt"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "name": "set_token_uri_base",
+        "type": "function",
+        "inputs": [
+            {
+                "name": "arr_len",
+                "type": "felt"
+            },
+            {
+                "name": "arr",
+                "type": "felt*"
+            }
+        ],
+        "outputs": []
     }
- ]
- 
- 
- 
+]

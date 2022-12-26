@@ -19,7 +19,22 @@
     {
         "data": [
             {
-                "name": "_from",
+                "name": "previousOwner",
+                "type": "felt"
+            },
+            {
+                "name": "newOwner",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "from_",
                 "type": "felt"
             },
             {
@@ -51,7 +66,7 @@
             }
         ],
         "keys": [],
-        "name": "Approve",
+        "name": "Approval",
         "type": "event"
     },
     {
@@ -74,6 +89,95 @@
         "type": "event"
     },
     {
+        "data": [
+            {
+                "name": "implementation",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "previousAdmin",
+                "type": "felt"
+            },
+            {
+                "name": "newAdmin",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "name": "name",
+                "type": "felt"
+            },
+            {
+                "name": "symbol",
+                "type": "felt"
+            },
+            {
+                "name": "owner",
+                "type": "felt"
+            },
+            {
+                "name": "proxy_admin",
+                "type": "felt"
+            },
+            {
+                "name": "public_key",
+                "type": "felt"
+            }
+        ],
+        "name": "initializer",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getFreeId",
+        "outputs": [
+            {
+                "name": "id",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getImmutable",
+        "outputs": [
+            {
+                "name": "immutable",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getPublicKey",
+        "outputs": [
+            {
+                "name": "publicKey",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "name": "tokenId",
@@ -89,27 +193,6 @@
             {
                 "name": "progress",
                 "type": "felt*"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "tokenId",
-                "type": "Uint256"
-            },
-            {
-                "name": "questId",
-                "type": "felt"
-            }
-        ],
-        "name": "hasCompletedQuest",
-        "outputs": [
-            {
-                "name": "completed",
-                "type": "felt"
             }
         ],
         "stateMutability": "view",
@@ -154,94 +237,21 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "getUrl",
+        "inputs": [
+            {
+                "name": "interfaceId",
+                "type": "felt"
+            }
+        ],
+        "name": "supportsInterface",
         "outputs": [
             {
-                "name": "url_len",
+                "name": "success",
                 "type": "felt"
-            },
-            {
-                "name": "url",
-                "type": "felt*"
             }
         ],
         "stateMutability": "view",
         "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "setImmutable",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "newAddress",
-                "type": "felt"
-            }
-        ],
-        "name": "setAdmin",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "amount",
-                "type": "Uint256"
-            },
-            {
-                "name": "tokenId",
-                "type": "Uint256"
-            }
-        ],
-        "name": "addToApiContract",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "amount",
-                "type": "Uint256"
-            }
-        ],
-        "name": "spend",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "mint",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "questId",
-                "type": "felt"
-            },
-            {
-                "name": "tokenId",
-                "type": "Uint256"
-            },
-            {
-                "name": "sig",
-                "type": "(felt, felt)"
-            }
-        ],
-        "name": "completeQuest",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "constructor",
-        "outputs": [],
-        "type": "constructor"
     },
     {
         "inputs": [],
@@ -287,7 +297,7 @@
     {
         "inputs": [
             {
-                "name": "token_id",
+                "name": "tokenId",
                 "type": "Uint256"
             }
         ],
@@ -304,7 +314,7 @@
     {
         "inputs": [
             {
-                "name": "token_id",
+                "name": "tokenId",
                 "type": "Uint256"
             }
         ],
@@ -332,11 +342,54 @@
         "name": "isApprovedForAll",
         "outputs": [
             {
-                "name": "is_approved",
+                "name": "isApproved",
                 "type": "felt"
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "mint",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "setImmutable",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "questId",
+                "type": "felt"
+            },
+            {
+                "name": "tokenId",
+                "type": "Uint256"
+            },
+            {
+                "name": "sig",
+                "type": "(felt, felt)"
+            }
+        ],
+        "name": "completeQuest",
+        "outputs": [],
         "type": "function"
     },
     {
@@ -346,7 +399,7 @@
                 "type": "felt"
             },
             {
-                "name": "token_id",
+                "name": "tokenId",
                 "type": "Uint256"
             }
         ],
@@ -372,7 +425,7 @@
     {
         "inputs": [
             {
-                "name": "_from",
+                "name": "from_",
                 "type": "felt"
             },
             {
@@ -380,7 +433,7 @@
                 "type": "felt"
             },
             {
-                "name": "token_id",
+                "name": "tokenId",
                 "type": "Uint256"
             }
         ],
@@ -391,7 +444,7 @@
     {
         "inputs": [
             {
-                "name": "_from",
+                "name": "from_",
                 "type": "felt"
             },
             {
@@ -399,7 +452,7 @@
                 "type": "felt"
             },
             {
-                "name": "token_id",
+                "name": "tokenId",
                 "type": "Uint256"
             },
             {
@@ -412,6 +465,95 @@
             }
         ],
         "name": "safeTransferFrom",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "tokenId",
+                "type": "Uint256"
+            }
+        ],
+        "name": "burn",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "tokenId",
+                "type": "Uint256"
+            },
+            {
+                "name": "tokenURI",
+                "type": "felt"
+            }
+        ],
+        "name": "setTokenURI",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "newOwner",
+                "type": "felt"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getImplementationHash",
+        "outputs": [
+            {
+                "name": "implementation",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getAdmin",
+        "outputs": [
+            {
+                "name": "admin",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "new_implementation",
+                "type": "felt"
+            }
+        ],
+        "name": "upgrade",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "newAdmin",
+                "type": "felt"
+            }
+        ],
+        "name": "setAdmin",
         "outputs": [],
         "type": "function"
     }
