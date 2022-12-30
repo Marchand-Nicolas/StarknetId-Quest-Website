@@ -198,13 +198,13 @@ export default function getQuestList(datas) {
                                                             details: {
                                                                 0: {
                                                                     buttons: [
-                                                                        <a href="https://starknet.id" target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
+                                                                        <a href="https://goerli.app.starknet.id/" target="_blank" rel="noreferrer"><button className="button gold">Open Starknet.id</button></a>
                                                                     ]
                                                                 }
                                                             },
                                                             customContent: [
                                                                 <p>
-                                                                    Set your .stark domain as main domain on <a className='link' href="https://starknet.id" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
+                                                                    Set your .stark domain as main domain on <a className='link' href="https://goerli.app.starknet.id/" target="_blank" rel="noreferrer">Starknet.id</a>, then click Okay
                                                                 </p>,
                                                             ],
                                                     }
