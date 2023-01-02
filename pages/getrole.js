@@ -8,6 +8,7 @@ import config from "../utils/config";
 import WalletMenu from "../components/walletmenu";
 import popup from "../utils/popup";
 import LoadingScreen from "../components/loadingScreen";
+import Wallets from "../components/UI/wallet";
 
 export default function GetRole() {
     const { contract:starknetIdContract } = useStarknetIdContract()
@@ -102,7 +103,12 @@ export default function GetRole() {
             </a>
         </div>
         }
-    </> : <WalletMenu  hasWallet={false} closeWallet={null} url="/getrole" />
+    </> : <Wallets
+        closeWallet={() => {}}
+        hasWallet={!account}
+    />
+    
+    //<Wallets hasWallet={account ? true : false} closeWallet={() => {}} />//<WalletMenu  hasWallet={false} closeWallet={null} url="/getrole" />
     }
     </>
 }

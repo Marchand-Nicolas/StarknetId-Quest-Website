@@ -88,36 +88,6 @@
   background-image: var(--brown);
 }
 
-/* Focus Ring for Tabs – can be optimized in the future with better :focus-visible support */
-
-.nq-button::after {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  border: 2px solid var(--soft-brown); /* Based on Nimiq Light Blue */
-  border-radius: 500px;
-  opacity: 0;
-}
-
-.nq-button:focus,
-.nq-button-s:focus,
-.nq-button-pill:focus {
-  outline: none;
-}
-
-.nq-button:focus::after {
-  opacity: 1;
-}
-
-@media (max-width: 1024px) {
-  .nq-button {
-    font-size: 0.6rem;
-  }
-}
-
 .address {
   width: 100%;
   background-color: #232020b7;

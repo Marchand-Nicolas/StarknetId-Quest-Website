@@ -19,6 +19,7 @@ import popup from "../utils/popup";
 import config from "../utils/config";
 import Common from "../components/common";
 import waitForTransaction from "../utils/waitForTransaction";
+import Wallets from "../components/UI/wallet";
 
 export default function Home() {
   const { connect, connectors } = useConnectors()
@@ -61,15 +62,6 @@ export default function Home() {
     }, 10000);
     return () => clearInterval(interval);
   }, [reloadDatas]);
-
-  useEffect(() => {
-    const connectorId = getCookie("connector")
-    const connector = connectors.find(connector => connector.id() === connectorId)
-    if (!connector) return console.log(connectors);
-    connector.ready().then(ready => {
-      connect(connector)
-    }) 
-  }, [connectors])
 
   useEffect(async () => {
     if (!tokenId || !account) return;
@@ -356,9 +348,10 @@ export default function Home() {
           </div> 
         </div>
       }
-      {
-        !account && <WalletMenu hasWallet={false} closeWallet={null} />
-      }
+      <Wallets
+        closeWallet={() => {}}
+        hasWallet={!account}
+      />
       <div className={styles.toolBar}>
         {playerLevel > 1 ? <Settings contract={contract} account={account.address} tokenId={tokenId} playerLevel={playerLevel} /> : null}
         <button onClick={() => zoom(1.1)} className={styles.button}>
