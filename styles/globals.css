@@ -198,9 +198,10 @@ fieldset.popup button {
 }
 
 .title {
-  font-family    : Verdana, sans-serif;
+  font-family: "Montserrat-ExtraBold";
   color: var(--gold);
   margin-bottom: 15px;
+  font-size: 2rem;
 } 
 
 .title.v2 {
