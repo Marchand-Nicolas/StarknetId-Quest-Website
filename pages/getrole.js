@@ -61,7 +61,7 @@ export default function GetRole() {
             return;
         }
         if (!userDatas.identityTokenId) return;
-        const discordUserId = (await starknetIdContract.get_verifier_data([userDatas.identityTokenId, 0], "28263441981469284", "0x06520a4a1934c84a385a3088952c3812c96f9e9c614bc4d483daff5622ea9fad")).toString()
+        const discordUserId = (await starknetIdContract.get_verifier_data(userDatas.identityTokenId, "28263441981469284", "0x06520a4a1934c84a385a3088952c3812c96f9e9c614bc4d483daff5622ea9fad")).toString()
         setLoading(false)
         if (discordUserId == '0') {
             setActionDescription("You have to link a Discord account to your identity to get the Odyssey OG role on the official Starknet.id server.")
