@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { useStarknet } from '@starknet-react/core'
-import styles from '../styles/Home.module.css'
-import React from 'react'
-import WalletMenu from '../components/walletmenu.js'
+import { useStarknet } from "@starknet-react/core";
+import styles from "../styles/Home.module.css";
+import React from "react";
+import WalletMenu from "../components/walletmenu.js";
 import Common from "../components/common";
 import Wallets from "../components/UI/wallet";
 
-export default function Home() {;
+export default function Home() {
   const [connectMenuToggled, setConnectMenuToggled] = useState(false);
-  const [url, setUrl] = useState('');
-  const { account } = useStarknet()
-  
+  const [url, setUrl] = useState("");
+  const { account } = useStarknet();
+
   return (
+    /*
   <div className="default_background">
     <Common account={account} />
     {connectMenuToggled ? <Wallets
@@ -48,5 +49,6 @@ export default function Home() {;
         </div>
       </nav>
     </div>
+  */ <></>
   );
 }
