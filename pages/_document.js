@@ -25,7 +25,7 @@ export default function App() {
       <body className="default_background_color">
         <Main />
         <div className="the-end">
-          <h1 className="title">This compaign has ended</h1>
+          <h1 className="title">This campaign has ended</h1>
         </div>
         <NextScript />
         <div id="popup" />
